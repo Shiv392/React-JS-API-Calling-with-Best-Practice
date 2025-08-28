@@ -1,0 +1,34 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This repo will help to understand how to make API calling in React.JS application using Axios library. \r This repo will show all HTTP api calling request, response their status code, error handeling, \r controllers and specially models view controllers architectures.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shiv392/React-JS-API-Calling-with-Best-Practice.git"
+  },
+  "author": "shiv soni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shiv392/React-JS-API-Calling-with-Best-Practice/issues"
+  },
+  "homepage": "https://github.com/Shiv392/React-JS-API-Calling-with-Best-Practice#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
