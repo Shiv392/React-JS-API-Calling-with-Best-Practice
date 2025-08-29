@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
 import useLogin from "../hooks/useLogin";
-import '../styles/login.css'
+import '../styles/login.css';
+import { error$, success$ } from "../../shared/services/notification.service";
+import { message } from "antd";
 
 const LoginForm = () => {
   const { loading, handle_login, error } = useLogin();
@@ -10,6 +12,13 @@ const LoginForm = () => {
   const login_submit = async () => {
     const result = await handle_login(email, password);
     console.log("result-------->", result);
+    if(result?.success){
+      success$.next({message : result.message});
+    }
+    else{
+      console.log('shiv')
+      error$.next({message : result?.message || ''});
+    }
   };
 
   const form_submit = (event: FormEvent) => {
@@ -39,9 +48,6 @@ const LoginForm = () => {
           onChange={(e) => set_password(e.target.value)}
           required
         />
-
-        {error && <p className="error-msg">{error}</p>}
-
         <button type="submit" disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </button>

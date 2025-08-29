@@ -7,7 +7,7 @@ const {success, message, user} = await login_model(email,password);
 if(!success){
     return res.status(401).json({
         success : false,
-        message : message
+        error : message
     })
 }
 else{

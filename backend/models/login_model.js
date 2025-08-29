@@ -8,14 +8,14 @@ const login_model = (email, password)=>{
         if(err){
             return reject({
                 success : false,
-                message : err || 'Error in operation'
+                error : err || 'Error in operation'
             })
         }
 
        if(!user || user.length==0){
         return resolve({
             success : false,
-            message : 'User not found'
+            error : 'User not found'
         })
        }
 

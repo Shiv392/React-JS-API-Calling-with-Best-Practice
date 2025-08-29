@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import useSignup from "../hooks/useSignup";
 import "../styles/signup.css";
+import { success$, error$ } from "../../shared/services/notification.service";
 
 const SignUpForm = () => {
   const { loading, handle_signup, error } = useSignup();
@@ -11,6 +12,15 @@ const SignUpForm = () => {
   const signup = async () => {
     const data = await handle_signup(name, email, password);
     console.log("Signup result:", data);
+    if(data.success){
+     success$.next({message : data.message});
+     set_name('');
+     set_email('');
+     set_password('');
+    }
+    else{
+     error$.next({message : data.message})
+    }
   };
 
   const form_submit = (event: FormEvent) => {
