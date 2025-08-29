@@ -8,7 +8,10 @@ const app = express();
 const {mysql_connection} = require('./db/db_connection');
 
 app.use(body_parser.json());
-app.use(cors());
+app.use(cors({
+    origin : 'http://localhost:5176',
+    credentials : true
+}));
 
 const login_routes = require('./routes/login_route');
 const signup_routes = require('./routes/signup_route');

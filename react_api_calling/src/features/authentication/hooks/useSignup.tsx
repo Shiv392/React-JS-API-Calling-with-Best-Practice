@@ -14,8 +14,8 @@ const data = await signup_service({name, email, password});
 return data;
 }
 catch(err){
-const axios_error = err as AxiosError<{message : string}>;
-const error_message = axios_error.response?.data?.message;
+const axios_error = err as AxiosError<{error : string}>;
+const error_message = axios_error.response?.data?.error;
 return Promise.reject(error_message || 'Signup Failed');
 }
 finally{

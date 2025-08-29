@@ -15,12 +15,9 @@ const data = await login_service({email, password});
 return data;
 }
 catch(err){
-console.log('login error----------->', err);
 const axios_error = err as AxiosError<{messasge : string}>;
-console.log('axios error------>', axios_error);
-
 const error_msg = axios_error.response?.data.messasge;
-set_error(error_msg || 'Login Failed');
+return Promise.reject(error_msg || 'Login Failed')
 }
 finally{
     set_loading(false);
